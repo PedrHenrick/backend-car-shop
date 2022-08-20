@@ -1,6 +1,6 @@
 import { model as mongoCreateModel, Schema } from 'mongoose';
 import { ICar } from '../interfaces/ICar';
-import MongoModel from './Mongo.model';
+import MongoModel from '../utils/Mongo.model';
 
 const carsMongooseSchema = new Schema<ICar>({
   doorsQty: Number,
