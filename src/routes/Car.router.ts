@@ -9,6 +9,7 @@ const carModelInstance = new CarModel();
 const carServiceInstance = new CarService(carModelInstance);
 const carControllerInstance = new CarController(carServiceInstance);
 
-carRouter.post('/', carControllerInstance.create);
+carRouter.post('/', (request, response) => carControllerInstance
+  .create(request, response));
 
 export default carRouter;
