@@ -13,5 +13,7 @@ carRouter.post('/', (request, response) => carControllerInstance
   .create(request, response));
 carRouter.get('/', (request, response) => carControllerInstance
   .read(request, response));
+carRouter.get('/:id', (request, response) => carControllerInstance
+  .readOne(request, response));  
 
 export default carRouter;
