@@ -13,4 +13,9 @@ export default class CarController implements IController<ICar> {
     const resultOfAddingTheCar = await this._service.create(request.body);
     return response.status(201).json(resultOfAddingTheCar);
   }
+
+  public async read(_request: Request, response: Response<ICar[]>) {
+    const allCars = await this._service.read();
+    return response.status(200).json(allCars);
+  }
 }
