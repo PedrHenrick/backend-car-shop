@@ -17,11 +17,11 @@ const errorHandle: ErrorRequestHandler = (
 
   if (mappedError) {
     const { status, message } = mappedError;
-    return response.status(status).json({ message });
+    return response.status(status).json({ error: message });
   }
 
   console.log(error);
-  return response.status(500).json({ message: 'Internal Error' });
+  return response.status(500).json({ error: 'Internal Error' });
 };
 
 export default errorHandle;
