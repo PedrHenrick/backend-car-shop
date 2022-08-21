@@ -11,5 +11,7 @@ const carControllerInstance = new CarController(carServiceInstance);
 
 carRouter.post('/', (request, response) => carControllerInstance
   .create(request, response));
+carRouter.get('/', (request, response) => carControllerInstance
+  .read(request, response));
 
 export default carRouter;
