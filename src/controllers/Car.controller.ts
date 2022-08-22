@@ -23,7 +23,7 @@ export default class CarController implements IController<ICar> {
   }
 
   public async readOne(
-    request: Request & { params: { id: string } },
+    request: Request,
     response: Response<ICar | null>,
   ): Promise<Response> {
     const car = await this._service.readOne(request.params.id);

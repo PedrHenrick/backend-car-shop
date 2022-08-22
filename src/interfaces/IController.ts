@@ -8,7 +8,7 @@ export interface IController<T> {
     request: Request,
     response: Response<T[]>): Promise<Response>,
   readOne(
-    request: Request & { params: { id: string } },
+    request: Request,
     response: Response<T | null>): Promise<Response>,
   update?(
     request: Request,
