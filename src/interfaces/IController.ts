@@ -10,7 +10,7 @@ export interface IController<T> {
   readOne(
     request: Request,
     response: Response<T | null>): Promise<Response>,
-  update?(
+  update(
     request: Request,
     response: Response<T | null>): Promise<Response>,
   delete?(
