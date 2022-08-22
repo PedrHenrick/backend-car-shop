@@ -14,12 +14,12 @@ export default abstract class MongoModel<T> implements IModel<T> {
   }
 
   public async read():Promise<T[]> {
-    return this._model.find().select('-__v');
+    return this._model.find();
   }
 
   public async readOne(_id: string): Promise<T | null> {
     if (!isValidObjectId(_id)) throw new Error(ErrorTypes.InvalidMongoId);
-    return this._model.findOne({ _id }).select('-__v');
+    return this._model.findOne({ _id });
   }
 
   public async update(_id: string, obj: Partial<T>): Promise<T | null> {
@@ -28,12 +28,12 @@ export default abstract class MongoModel<T> implements IModel<T> {
       { _id },
       { ...obj } as UpdateQuery<T>,
       { new: true },
-    ).select('-__v');
+    );
   }
 
   public async delete(_id: string): Promise<T | null> {
     if (!isValidObjectId(_id)) throw Error(ErrorTypes.InvalidMongoId);
     
-    return this._model.findByIdAndRemove({ _id }).select('-__v');
+    return this._model.findByIdAndRemove({ _id });
   }
 }
