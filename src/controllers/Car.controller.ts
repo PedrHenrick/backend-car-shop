@@ -29,4 +29,12 @@ export default class CarController implements IController<ICar> {
     const car = await this._service.readOne(request.params.id);
     return response.status(200).json(car);
   }
+
+  public async update(
+    request: Request & { body: ICar },
+    response: Response<ICar | null>,
+  ): Promise<Response> {
+    const car = await this._service.update(request.params.id, request.body);
+    return response.status(200).json(car);
+  }
 }
